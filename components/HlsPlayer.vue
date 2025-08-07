@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import Hls from 'hls.js'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps<{
@@ -28,8 +27,11 @@ const props = defineProps<{
 
 const videoRef = ref<HTMLVideoElement>()
 
-onMounted(() => {
-  if (!videoRef.value) return
+onMounted(async () => {
+  if (!videoRef.value || import.meta.server) return
+  
+  // 动态导入 HLS.js 只在客户端运行
+  const { default: Hls } = await import('hls.js')
   
   if (Hls.isSupported()) {
     const hls = new Hls()

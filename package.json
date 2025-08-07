@@ -8,11 +8,12 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "wrangler pages deploy .output/public",
+    "deploy": "wrangler pages deploy dist --commit-dirty=true",
     "cf:login": "wrangler login",
-    "cf:build": "nuxt build && npm run deploy"
+    "cf:build": "npm run build && npm run deploy"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "hls.js": "^1.6.8",
     "nuxt": "^4.0.1",
     "vue": "^3.5.18",
