@@ -1,7 +1,7 @@
 <template>
   <div class="live-grid">
     <div 
-      v-for="item in data.data" 
+      v-for="item in data" 
       :key="item.contitle"
       class="live-item"
     >
@@ -18,9 +18,16 @@ import HlsPlayer from '../components/HlsPlayer.vue'
 const { data } = await useFetch(
   "http://jy.7he.tv/index.php?m=api&f=minprograme&v=public_videoList&unionid=ocsNF0zPPbJRoRfo6jwqtcUh-V48&mOpenId=oo-nG00mkqvMONjDgLbbih-M0V7I&platform=minprograme",
   {
-    transform: (res: any) => JSON.parse(res),
+    transform: (res: any) => {
+      const { data } = JSON.parse(res);
+      return data.map((item: any) => ({
+        ...item,
+        hlsUrl: item.hlsUrl.replace(/http:/, 'https:').replace(':80', '') // Ensure HLS URL uses HTTPS
+      }));
+    },
   }
 );
+console.log(data.value);
 </script>
 
 <style scoped>
