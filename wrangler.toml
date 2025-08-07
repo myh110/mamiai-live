@@ -1,0 +1,12 @@
+name = "mamiai-live"
+compatibility_date = "2025-01-01"
+
+[env.production]
+name = "mamiai-live"
+
+[[env.production.routes]]
+pattern = "*"
+custom_domain = false
+
+[build]
+command = "npm run build"
