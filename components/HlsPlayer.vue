@@ -5,12 +5,9 @@
       controls
       autoplay
       muted
-      width="100%"
-      height="100%"
+      class="w-full h-full object-cover"
       :style="{
-        background: '#000',
-        borderRadius: '8px',
-        objectFit: 'contain'
+        background: '#000'
       }"
     >
       您的浏览器不支持 video 标签
@@ -56,28 +53,10 @@ onMounted(async () => {
 
 <style scoped>
 .hls-player {
-  flex: 1;
-  display: flex;
-  min-height: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
   position: relative;
   overflow: hidden;
-}
-
-@media (max-width: 767px) {
-  .hls-player {
-    min-height: 180px;
-  }
-}
-
-@media (min-width: 768px) {
-  .hls-player {
-    min-height: 200px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hls-player {
-    min-height: 250px;
-  }
 }
 </style>
