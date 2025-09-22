@@ -15,6 +15,10 @@
 
 <script setup lang="ts">
 import HlsPlayer from '../components/HlsPlayer.vue'
+
+const header = useResponseHeader('Cache-Control');
+header.value = 'no-store, no-cache, must-revalidate';
+
 const { data } = await useFetch<any>(
   "http://jy.7he.tv/index.php?m=api&f=minprograme&v=public_videoList&unionid=ocsNF0zPPbJRoRfo6jwqtcUh-V48&mOpenId=oo-nG00mkqvMONjDgLbbih-M0V7I&platform=minprograme",
   {
@@ -27,7 +31,6 @@ const { data } = await useFetch<any>(
     },
   }
 );
-console.log(data.value);
 </script>
 
 <style scoped>
