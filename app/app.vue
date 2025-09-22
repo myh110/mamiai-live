@@ -2,7 +2,7 @@
   <div class="h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 p-4 flex flex-col">
     <div class="flex-shrink-0 text-center mb-4">
       <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">
-        🎬 Live Streaming Hub
+        📺 直播中心
       </h1>
     </div>
 
@@ -22,7 +22,7 @@
               </h3>
               <div class="flex items-center space-x-2 flex-shrink-0 ml-2">
                 <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                <span class="text-xs text-gray-300 font-medium">LIVE</span>
+                <span class="text-xs text-gray-300 font-medium">直播中</span>
               </div>
             </div>
 
